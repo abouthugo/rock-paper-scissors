@@ -15,7 +15,7 @@
 - [ ] State the evaluation functions wherever applicable
      - Use either Simple Minimax or Alpha Beta Pruning or Monte Carlo Simulation 
     > This analysis should be done by you in theory, and also implemented within the program wherever necessary with the goal of making a given player win
-- [ ] Presentation (Google slides)
+- [ ] Presentation (Google slides) **Tyler**
     - [ ] Explain the rules of your game in the introduction on the slides
     - [ ] Show the input, processing and output in the program with respect to the given program requirements. 
     - [ ] Describe the initial state
