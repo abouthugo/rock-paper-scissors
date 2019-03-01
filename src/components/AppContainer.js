@@ -10,7 +10,7 @@ const AppContainer = styled.section`
   grid-template-areas: 
   ". title ."
   ". main ."
-  ". timer ."
+  ". timer start"
   ". controls .";
   max-height: 100vh;
   justify-items: center;
