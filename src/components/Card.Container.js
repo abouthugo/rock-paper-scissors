@@ -13,45 +13,21 @@ export default class CardContainer extends Component {
 
     componentWillMount(){
         this.setState({
-            cards: randomCards()
+            cards: this.props.cards
         });
     }
 
-    handleClick = (id) => {
-        let { cards } = this.state;
-        let newcards = cards.map(card => {
-            if (card.id === id) {
-                return { name: card.name, active: true, id: card.id }
-            } else
-                return { name: card.name, active: false, id: card.id }
-        });
-        this.setState({ cards: newcards, choice: id });
-    };
 
     render() {
-        let { cards } = this.state;
+        let { cards } = this.props;
         return (
             <CardWrapper>
                 { cards.map(card => (
-                    <Card key={ card.id } card={ card } handleClick={ () => this.handleClick(card.id) }/>
+                    <Card key={ card.id } card={ card } handleClick={ () => this.props.handleCardClick(card.id) }/>
                 )) }
             </CardWrapper>
         );
     }
 
 
-}
-
-function randomCards() {
-    let choices = ["rock", "paper", "scissors"];
-    let res = [];
-    for (let i in choices) {
-        let n = Math.floor(Math.random() * 3);
-        res.push({
-            name: choices[n],
-            active: false,
-            id: i
-        });
-    }
-    return res;
 }

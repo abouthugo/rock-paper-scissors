@@ -5,6 +5,7 @@ import styled from 'styled-components';
  */
 const AppContainer = styled.section`
   display: grid;
+  grid-row-gap: 20px;
   grid-template-columns: 1fr 4fr 1fr;
   grid-template-rows: 1fr 10fr 1fr 4fr;
   grid-template-areas: 
@@ -14,6 +15,7 @@ const AppContainer = styled.section`
   ". controls .";
   max-height: 100vh;
   justify-items: center;
+  align-items: center;
 `;
 
 export default AppContainer;

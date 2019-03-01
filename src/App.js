@@ -6,22 +6,29 @@ import User from './components/User';
 import CardContainer from './components/Card.Container';
 import Timer from './components/Timer';
 import StartButton from './components/StartButton';
+import { AppContextProvider, AppContext } from './components/Context';
 
 class App extends Component {
     render() {
         return (
-           <AppContainer>
-               <p style={{"gridArea": "title", "fontSize": "2.6rem"}}>Welcome Players</p>
-               <UserList>
-                   <User username="Hugo Perdomo"/>
-                   <User username="Tyler Harriott"/>
-                   <User username="Abdul Khalique"/>
-                   <User username="Luis Quiroz"/>
-               </UserList>
-               <Timer/>
-               <StartButton/>
-               <CardContainer/>
-           </AppContainer>
+            <AppContainer>
+                <AppContextProvider>
+                    <p style={ { "gridArea": "title", "fontSize": "2.6rem" } }>Welcome Players</p>
+                    <UserList>
+                        <User username="Player One"/>
+                    </UserList>
+                    <AppContext.Consumer>
+                        {context => (
+                            <>
+                                <Timer start={context.state.start} handleReset={context.handleReset}/>
+                                <CardContainer cards={context.state.cards} handleCardClick={context.handleCardClick}/>
+                            </>
+                        )}
+                    </AppContext.Consumer>
+                    <StartButton/>
+
+                </AppContextProvider>
+            </AppContainer>
         );
     }
 }
