@@ -7,6 +7,7 @@ import CardContainer from './components/Card.Container';
 import Timer from './components/Timer';
 import StartButton from './components/StartButton';
 import { AppContextProvider, AppContext } from './components/Context';
+import OnlinePlayersPanel from './components/OnlinePlayersPanel';
 
 class App extends Component {
     render() {
@@ -14,9 +15,6 @@ class App extends Component {
             <AppContainer>
                 <AppContextProvider>
                     <p style={ { "gridArea": "title", "fontSize": "2.6rem" } }>Welcome Players</p>
-                    <UserList>
-                        <User username="Player One"/>
-                    </UserList>
                     <AppContext.Consumer>
                         {context => (
                             <>
@@ -26,7 +24,7 @@ class App extends Component {
                         )}
                     </AppContext.Consumer>
                     <StartButton/>
-
+                    <OnlinePlayersPanel/>
                 </AppContextProvider>
             </AppContainer>
         );

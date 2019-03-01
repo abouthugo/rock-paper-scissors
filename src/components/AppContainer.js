@@ -6,13 +6,14 @@ import styled from 'styled-components';
 const AppContainer = styled.section`
   display: grid;
   grid-row-gap: 20px;
+  grid-column-gap: 10px;
   grid-template-columns: 1fr 4fr 1fr;
   grid-template-rows: 1fr 10fr 1fr 4fr;
   grid-template-areas: 
-  ". title ."
-  ". main ."
-  ". timer start"
-  ". controls .";
+  "panel title ."
+  "panel main ."
+  "panel timer start"
+  "panel controls .";
   max-height: 100vh;
   justify-items: center;
   align-items: center;
