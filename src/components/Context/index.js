@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import io from 'socket.io-client';
 const AppContext = React.createContext();
 
 class AppContextProvider extends Component {
@@ -8,9 +8,10 @@ class AppContextProvider extends Component {
         super();
         this.state = {
             start: false,
+            player_name: "Hugo Perdomo",
             cards: [],
             choice: 1
-        }
+        };
     }
 
     componentDidMount(){
@@ -18,6 +19,10 @@ class AppContextProvider extends Component {
             cards: randomCards()
         });
     }
+
+    connectUser = () => {
+        this.socket = io(process.env.REACT_APP_Socket);
+    };
 
     handleStart = () => {
         this.setState({start: true});
