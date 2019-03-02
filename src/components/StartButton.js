@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from './Button.module.scss'
 import { AppContext } from './Context';
+import Button from './Button';
 const StartButton = () => (
     <AppContext.Consumer>
         {context => (
-            <button className={styles.btn} onClick={context.handleStart}>Start!</button>
+            <Button onClick={context.handleStart}>Start!</Button>
         )}
     </AppContext.Consumer>
 );
