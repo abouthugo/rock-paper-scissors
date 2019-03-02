@@ -8,6 +8,7 @@ class AppContextProvider extends Component {
         super();
         this.state = {
             start: false,
+            registered: false,
             player_name: "Hugo Perdomo",
             cards: [],
             choice: 1

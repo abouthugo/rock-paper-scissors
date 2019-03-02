@@ -15,6 +15,7 @@ const AppContainer = styled.section`
   "panel timer start"
   "panel controls .";
   max-height: 100vh;
+  height: 100%;
   justify-items: center;
   align-items: center;
 `;
