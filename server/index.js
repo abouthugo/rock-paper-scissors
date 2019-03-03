@@ -25,10 +25,11 @@ io.on('connection', (player) => {
     });
 
     // When a player leaves
-    player.on("leave", () => {
+    player.on("leave", ({id}) => {
         console.log(`Player ${player.id} left`);
         io.sockets.emit("leave", { id: player.id });
-        connectedUsers = connectedUsers.filter(v => v.id !== player.id);
+        connectedUsers = connectedUsers.filter(v => v.id !== id);
+        console.log(connectedUsers);
         player.disconnect(0);
     });
 });

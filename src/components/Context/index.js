@@ -38,10 +38,10 @@ class AppContextProvider extends Component {
      * Set up socket connection, executed after user picks an username
      */
     connectUser = () => {
-        this.socket = io(process.env.REACT_APP_Socket);
+        this.socket = io("/");
         window.addEventListener("beforeunload", (e) => {
             e.preventDefault();
-            this.socket.emit("leave", {});
+            this.socket.emit("leave", {id: this.state.user.id});
         });
 
         // Get the id
