@@ -18,3 +18,7 @@ You will also see any lint errors in the console.
 
 ![Rules of the game](/img/rules.png)
 ![Outcomes](/img/outcomes.png)
+
+## Dev notes
+
+Useful socket.io emitters [click me](https://stackoverflow.com/questions/10058226/send-response-to-all-clients-except-sender)

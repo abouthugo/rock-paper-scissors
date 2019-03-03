@@ -1,21 +1,23 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import io from 'socket.io-client';
+
 const AppContext = React.createContext();
 
 class AppContextProvider extends Component {
 
-    constructor(){
+    constructor() {
         super();
         this.state = {
             start: false,
             registered: false,
             user: {},
+            players: [],
             cards: [],
             choice: 1,
         };
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.setState({
             cards: randomCards()
         });
@@ -25,12 +27,11 @@ class AppContextProvider extends Component {
         this.setState({
             user: {
                 name: player_name,
-                available: true,
-                id: null,
+                available: true
             },
             registered: true
         });
-        this.connectUser();
+        setTimeout(this.connectUser, 200);
     };
 
     /**
@@ -40,15 +41,42 @@ class AppContextProvider extends Component {
         this.socket = io(process.env.REACT_APP_Socket);
         window.addEventListener("beforeunload", (e) => {
             e.preventDefault();
-           this.socket.emit("leave", {});
+            this.socket.emit("leave", {});
         });
+
+        // Get the id
+        this.socket.on("id", ({id}) => {
+            this.setState(prevState => ({
+                user: {
+                    ...prevState.user,
+                    id
+                }
+            }));
+        });
+
+        // get who is connected
+        this.socket.on('entering', ({ players }) => {
+            this.setState({ players });
+        });
+
+        // listen for connections
+        this.socket.on("connected", ({user}) => {
+            console.log("connected Called");
+            console.log(user);
+            this.setState(prevState => ({
+               players: [...prevState.players, user]
+            }));
+        });
+
+        // Send connection message
+        this.socket.emit("connected", {user: this.state.user})
     };
 
     /**
      * Starts the timer
      */
     handleStart = () => {
-        this.setState({start: true});
+        this.setState({ start: true });
         console.log("Started")
     };
 
@@ -56,7 +84,7 @@ class AppContextProvider extends Component {
      * Resets the timer
      */
     handleReset = () => {
-        this.setState({start: false, cards: randomCards(), choice: 1});
+        this.setState({ start: false, cards: randomCards(), choice: 1 });
         console.log("Reset");
     };
 
@@ -76,23 +104,24 @@ class AppContextProvider extends Component {
     };
 
 
-    render(){
-        return(
+    render() {
+        return (
             <AppContext.Provider
-                value={{
+                value={ {
                     state: this.state,
                     handleStart: this.handleStart,
                     handleReset: this.handleReset,
                     handleCardClick: this.handleCardClick,
                     setPlayerName: this.setPlayerName,
-                }}
+                } }
             >
-                {this.props.children}
+                { this.props.children }
             </AppContext.Provider>
         )
     }
 
 }
+
 function randomCards() {
     let choices = ["rock", "paper", "scissors"];
     let res = [];
@@ -107,4 +136,4 @@ function randomCards() {
     return res;
 }
 
-export {AppContext, AppContextProvider}
+export { AppContext, AppContextProvider }
