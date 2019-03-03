@@ -4,6 +4,11 @@
 - [ ] Game requirements: **Hugo** 
     - [x] Create UI
     - [ ] Add socket io server
+        - [x] Allow players to see each other
+        - [ ] Allow players to challenge each other
+    - [ ] Hide cards at the beginning
+    - [ ] Hide controllers until match begins
+    - [ ] Create component for notification
 - [ ] List the following:
     - [ ] Initial State – indicates how the game is set up at start
     - [ ] Players – defines which player has a move in the state
