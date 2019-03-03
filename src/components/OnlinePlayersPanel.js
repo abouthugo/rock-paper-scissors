@@ -24,7 +24,7 @@ const OnlinePlayersPanel = () => (
                     {
                         (context.state.players.length>0) ?
                             context.state.players.map(player => (
-                                <User username={player.user.name}/>
+                                <User username={player.name}/>
                             )):
                             <div>No is online</div>
                     }

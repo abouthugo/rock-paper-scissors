@@ -68,6 +68,17 @@ class AppContextProvider extends Component {
             }));
         });
 
+        // Listen for when someone leaves
+        this.socket.on("leave", ({id}) => {
+
+            let {players} = this.state;
+            let update = players.filter(el => el.id !== id);
+            this.setState({
+                players: update
+            });
+
+        });
+
         // Send connection message
         this.socket.emit("connected", {user: this.state.user});
 
