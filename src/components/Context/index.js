@@ -9,9 +9,9 @@ class AppContextProvider extends Component {
         this.state = {
             start: false,
             registered: false,
-            player_name: "Hugo Perdomo",
+            user: {},
             cards: [],
-            choice: 1
+            choice: 1,
         };
     }
 
@@ -21,15 +21,40 @@ class AppContextProvider extends Component {
         });
     }
 
-    connectUser = () => {
-        this.socket = io(process.env.REACT_APP_Socket);
+    setPlayerName = (player_name) => {
+        this.setState({
+            user: {
+                name: player_name,
+                available: true,
+                id: null,
+            },
+            registered: true
+        });
+        this.connectUser();
     };
 
+    /**
+     * Set up socket connection, executed after user picks an username
+     */
+    connectUser = () => {
+        this.socket = io(process.env.REACT_APP_Socket);
+        window.addEventListener("beforeunload", (e) => {
+            e.preventDefault();
+           this.socket.emit("leave", {});
+        });
+    };
+
+    /**
+     * Starts the timer
+     */
     handleStart = () => {
         this.setState({start: true});
         console.log("Started")
     };
 
+    /**
+     * Resets the timer
+     */
     handleReset = () => {
         this.setState({start: false, cards: randomCards(), choice: 1});
         console.log("Reset");
@@ -54,7 +79,8 @@ class AppContextProvider extends Component {
                     state: this.state,
                     handleStart: this.handleStart,
                     handleReset: this.handleReset,
-                    handleCardClick: this.handleCardClick
+                    handleCardClick: this.handleCardClick,
+                    setPlayerName: this.setPlayerName,
                 }}
             >
                 {this.props.children}

@@ -8,10 +8,10 @@ import TitleMessage from '../TitleMessage';
 
 const Game = () => (
     <>
-        <TitleMessage>Welcome Players</TitleMessage>
         <AppContext.Consumer>
             { context => (
                 <>
+                    <TitleMessage>Welcome {context.state.user.name}</TitleMessage>
                     <Timer start={ context.state.start } handleReset={ context.handleReset }/>
                     <CardContainer cards={ context.state.cards } handleCardClick={ context.handleCardClick }/>
                 </>

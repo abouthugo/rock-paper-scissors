@@ -14,6 +14,13 @@ export default class InputContainer extends Component{
         this.setState({value: target.value});
     };
 
+    componentDidUpdate(prevProps){
+        if(this.props.submitted && prevProps.submitted !== this.props.submitted){
+            this.props.action(this.state.value);
+            this.setState({value: ""});
+        }
+    }
+
     render(){
       return <InputPresenter handleChange={this.handleOnChange} value={this.state.value}/>;
     }
