@@ -15,7 +15,7 @@ io.on('connection', (player) => {
     player.emit("id", {id: player.id});
 
     // Lets the user know who is connected when he enters the game
-    player.emit('entering', { players: connectedUsers });
+    player.emit('entering', { players: [...connectedUsers] });
 
     // When a new player connects, let people know
     player.on("connected", ({user}) => {

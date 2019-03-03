@@ -69,7 +69,9 @@ class AppContextProvider extends Component {
         });
 
         // Send connection message
-        this.socket.emit("connected", {user: this.state.user})
+        this.socket.emit("connected", {user: this.state.user});
+
+        setTimeout(()=> console.log(this.state), 1000);
     };
 
     /**

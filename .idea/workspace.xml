@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77e8a1dc-0890-4e7a-a142-4e40f36e1599" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Context/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Context/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OnlinePlayersPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OnlinePlayersPanel.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,7 +33,7 @@
           <entry key="css" value="2" />
           <entry key="development" value="1" />
           <entry key="gitignore" value="1" />
-          <entry key="js" value="94" />
+          <entry key="js" value="102" />
           <entry key="json" value="4" />
           <entry key="local" value="3" />
           <entry key="lock" value="1" />
@@ -50,7 +50,7 @@
           <entry key="Git file" value="1" />
           <entry key="Image" value="3" />
           <entry key="JSON" value="4" />
-          <entry key="JavaScript" value="94" />
+          <entry key="JavaScript" value="102" />
           <entry key="Markdown" value="9" />
           <entry key="SCSS" value="16" />
           <entry key="TypeScript" value="1" />
@@ -65,7 +65,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="development" value="20" />
-          <entry key="js" value="13598" />
+          <entry key="js" value="13858" />
           <entry key="json" value="132" />
           <entry key="local" value="1" />
           <entry key="md" value="700" />
@@ -76,7 +76,7 @@
         <counts>
           <entry key=".env file" value="21" />
           <entry key="JSON" value="132" />
-          <entry key="JavaScript" value="13488" />
+          <entry key="JavaScript" value="13748" />
           <entry key="Less" value="110" />
           <entry key="Markdown" value="700" />
           <entry key="SCSS" value="1428" />
@@ -90,31 +90,17 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.40566605">
+    <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/components/Context/index.js">
+            <entry file="file://$PROJECT_DIR$/src/components/OnlinePlayersPanel.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="346">
-                  <caret line="63" column="44" selection-start-line="63" selection-start-column="44" selection-end-line="63" selection-end-column="44" />
+                <state relative-caret-position="578">
+                  <caret line="26" column="67" lean-forward="true" selection-start-line="26" selection-start-column="67" selection-end-line="26" selection-end-column="67" />
                   <folding>
-                    <element signature="e#0#39#0" expanded="true" />
-                    <element signature="e#1120#1196#0" />
-                    <element signature="e#1263#1372#0" />
+                    <element signature="e#0#26#0" expanded="true" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/README.md">
-              <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-                <state split_layout="FIRST">
-                  <first_editor relative-caret-position="414">
-                    <caret line="18" column="36" lean-forward="true" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-                  </first_editor>
-                  <second_editor />
                 </state>
               </provider>
             </entry>
@@ -124,10 +110,19 @@
       <split-second>
         <leaf>
           <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/components/Context/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="548">
+                  <caret line="73" column="55" lean-forward="true" selection-start-line="73" selection-start-column="55" selection-end-line="73" selection-end-column="55" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/server/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="463">
-                  <caret line="23" column="34" lean-forward="true" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+                <state relative-caret-position="552">
+                  <caret line="24" column="7" lean-forward="true" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
                 </state>
               </provider>
             </entry>
@@ -166,7 +161,6 @@
         <option value="$PROJECT_DIR$/src/components/User.js" />
         <option value="$PROJECT_DIR$/src/components/Card.module.scss" />
         <option value="$PROJECT_DIR$/src/components/Card.js" />
-        <option value="$PROJECT_DIR$/src/components/OnlinePlayersPanel.js" />
         <option value="$PROJECT_DIR$/src/components/Timer.js" />
         <option value="$PROJECT_DIR$/TODO.md" />
         <option value="$PROJECT_DIR$/.env.development" />
@@ -188,9 +182,10 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/subscriptions/index.js" />
         <option value="$PROJECT_DIR$/src/components/Game/index.js" />
-        <option value="$PROJECT_DIR$/src/components/Context/index.js" />
-        <option value="$PROJECT_DIR$/server/index.js" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/server/index.js" />
+        <option value="$PROJECT_DIR$/src/components/Context/index.js" />
+        <option value="$PROJECT_DIR$/src/components/OnlinePlayersPanel.js" />
       </list>
     </option>
   </component>
@@ -241,6 +236,12 @@
               <item name="rps" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="rps" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rps" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -249,7 +250,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="Contex&#9;null&#9;null&#10;contex&#9;null&#9;null&#10;app&#9;FILE&#9;file:///Users/hugo/github/rps/src/App.js&#10;react-scrip&#9;FILE&#9;file:///Users/hugo/github/rps/node_modules/react-scripts&#10;dev&#9;FILE&#9;file:///Users/hugo/github/rps/.env.development.local&#10;ap&#9;FILE&#9;file:///Users/hugo/github/rps/src/App.js&#10;conte&#9;null&#9;null&#10;Butt&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Button.js&#10;Wel&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Welcome/WelcomeView.js&#10;inpu&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Welcome/Input.module.scss&#10;Cards&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Card.module.scss&#10;Inp&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Welcome/Input.module.scss&#10;index&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Welcome/index.js&#10;App&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/AppContainer.js&#10;todo&#9;FILE&#9;file:///Users/hugo/github/rps/TODO.md&#10;timer&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Timer.js&#10;CARD&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Card.Container.js&#10;cardmod&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Card.module.scss" />
+    <property name="SearchEverywhereHistoryKey" value="server&#9;null&#9;null&#10;user&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/UserList.js&#10;contex&#9;null&#9;null&#10;Contex&#9;null&#9;null&#10;app&#9;FILE&#9;file:///Users/hugo/github/rps/src/App.js&#10;react-scrip&#9;FILE&#9;file:///Users/hugo/github/rps/node_modules/react-scripts&#10;dev&#9;FILE&#9;file:///Users/hugo/github/rps/.env.development.local&#10;ap&#9;FILE&#9;file:///Users/hugo/github/rps/src/App.js&#10;conte&#9;null&#9;null&#10;Butt&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Button.js&#10;Wel&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Welcome/WelcomeView.js&#10;inpu&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Welcome/Input.module.scss&#10;Cards&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Card.module.scss&#10;Inp&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Welcome/Input.module.scss&#10;index&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Welcome/index.js&#10;App&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/AppContainer.js&#10;todo&#9;FILE&#9;file:///Users/hugo/github/rps/TODO.md&#10;timer&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Timer.js&#10;CARD&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Card.Container.js&#10;cardmod&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Card.module.scss" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.env.development.local" />
     <property name="full.screen.before.presentation.mode" value="false" />
@@ -302,12 +303,12 @@
       <workItem from="1551487481583" duration="254000" />
       <workItem from="1551501373689" duration="4165000" />
       <workItem from="1551565436042" duration="5184000" />
-      <workItem from="1551583188816" duration="6049000" />
+      <workItem from="1551583188816" duration="6808000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41415000" />
+    <option name="totallyTimeSpent" value="42174000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
@@ -383,13 +384,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="6" column="31" lean-forward="true" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/UserList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -558,33 +552,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Game/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="20" column="13" lean-forward="true" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/OnlinePlayersPanel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="21" column="38" lean-forward="true" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
@@ -595,21 +562,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/UserList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Game/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="23" column="34" lean-forward="true" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+        <state relative-caret-position="552">
+          <caret line="24" column="7" lean-forward="true" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Context/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="63" column="44" selection-start-line="63" selection-start-column="44" selection-end-line="63" selection-end-column="44" />
+        <state relative-caret-position="548">
+          <caret line="73" column="55" lean-forward="true" selection-start-line="73" selection-start-column="55" selection-end-line="73" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/OnlinePlayersPanel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="26" column="67" lean-forward="true" selection-start-line="26" selection-start-column="67" selection-end-line="26" selection-end-column="67" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
-            <element signature="e#1120#1196#0" />
-            <element signature="e#1263#1372#0" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>

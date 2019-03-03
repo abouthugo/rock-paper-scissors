@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import User from './User';
+import { AppContext } from './Context';
 
 const Panel = styled.div`
   display: flex;
@@ -17,9 +18,19 @@ const Panel = styled.div`
 const OnlinePlayersPanel = () => (
     <Panel>
         <p>Available Players</p>
-        <User username="PlayerOne"/>
-        <User username="PlayerTwo"/>
-        <User username="PlayerThree"/>
+        <AppContext.Consumer>
+            {context => (
+                <>
+                    {
+                        (context.state.players.length>0) ?
+                            context.state.players.map(player => (
+                                <User username={player.user.name}/>
+                            )):
+                            <div>No is online</div>
+                    }
+                </>
+            )}
+        </AppContext.Consumer>
     </Panel>
 );
 
