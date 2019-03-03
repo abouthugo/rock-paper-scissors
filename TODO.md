@@ -10,7 +10,7 @@
     - [ ] Actions – returns the set of legal moves in a state
     - [ ] Results – determines the outcome of a move
     - [ ] Utility – gives the payoff with numeric values for each player
-- [ ] Draw a game tree
+- [ ] Draw a game tree **LUIS**
      - analyze the performance of the players with utility values.
 - [ ] State the evaluation functions wherever applicable
      - Use either Simple Minimax or Alpha Beta Pruning or Monte Carlo Simulation 
