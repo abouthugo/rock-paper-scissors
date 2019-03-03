@@ -60,6 +60,10 @@ class AppContextProvider extends Component {
         console.log("Reset");
     };
 
+    /**
+     * Adds a class to card that has been clicked
+     * @param id
+     */
     handleCardClick = (id) => {
         let { cards } = this.state;
         let newcards = cards.map(card => {
