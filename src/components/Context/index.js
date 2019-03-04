@@ -8,20 +8,26 @@ class AppContextProvider extends Component {
     constructor() {
         super();
         this.state = {
-            start: false,
-            registered: false,
+            start: false, // This is for the timer
+            registered: false, // This is for the initial login
+            inMatch: false, // Signals whether user is in a match or not
             user: {},
             players: [],
             cards: [],
-            choice: 1,
+            choice: 0,
         };
     }
 
     componentDidMount() {
         this.setState({
-            cards: randomCards()
+            cards: initialCards()
         });
     }
+
+    sendMatchRequest = () => {
+        // TODO: emit a message to the user that has been clicked
+        this.setState({inMatch: true});
+    };
 
     setPlayerName = (player_name) => {
         this.setState({
@@ -89,7 +95,17 @@ class AppContextProvider extends Component {
      * Starts the timer
      */
     handleStart = () => {
-        this.setState({ start: true });
+        this.setState({
+            start: true,
+            cards: randomCards(),
+        });
+
+        setTimeout(() => {
+            let {cards} = this.state;
+            this.setState({
+                choice: cards[0].name
+            })
+        }, 10);
         console.log("Started")
     };
 
@@ -97,15 +113,20 @@ class AppContextProvider extends Component {
      * Resets the timer
      */
     handleReset = () => {
-        this.setState({ start: false, cards: randomCards(), choice: 1 });
+        this.setState({
+            start: false,
+            inMatch: false,
+            cards: initialCards(),
+            choice: 1 });
         console.log("Reset");
     };
 
     /**
      * Adds a class to card that has been clicked
      * @param id
+     * @param name
      */
-    handleCardClick = (id) => {
+    handleCardClick = ({id, name}) => {
         let { cards } = this.state;
         let newcards = cards.map(card => {
             if (card.id === id) {
@@ -113,7 +134,7 @@ class AppContextProvider extends Component {
             } else
                 return { name: card.name, active: false, id: card.id }
         });
-        this.setState({ cards: newcards, choice: id });
+        this.setState({ cards: newcards, choice: name });
     };
 
 
@@ -126,6 +147,7 @@ class AppContextProvider extends Component {
                     handleReset: this.handleReset,
                     handleCardClick: this.handleCardClick,
                     setPlayerName: this.setPlayerName,
+                    sendMatchRequest: this.sendMatchRequest
                 } }
             >
                 { this.props.children }
@@ -142,6 +164,18 @@ function randomCards() {
         let n = Math.floor(Math.random() * 3);
         res.push({
             name: choices[n],
+            active: false,
+            id: i
+        });
+    }
+    return res;
+}
+
+function initialCards(){
+    let res = [];
+    for(let i =0; i < 3; i ++){
+        res.push({
+            name: "rand",
             active: false,
             id: i
         });

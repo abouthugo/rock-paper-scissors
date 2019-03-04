@@ -69,7 +69,7 @@ export default class Timer extends Component{
                 background={remaining === 0 ? "white": null}
                 cursor={remaining === 0 ? "pointer": null}
                 onClick={remaining === 0 ? this.handleClick : null}
-            >{remaining!==0 ? remaining: "Reset"}</TimeMessage>
+            >{remaining!==0 ? remaining: "Exit"}</TimeMessage>
 
         )
     }

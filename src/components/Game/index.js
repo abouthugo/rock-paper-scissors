@@ -11,13 +11,18 @@ const Game = () => (
         <AppContext.Consumer>
             { context => (
                 <>
-                    <TitleMessage>Welcome {context.state.user.name}</TitleMessage>
-                    <Timer start={ context.state.start } handleReset={ context.handleReset }/>
-                    <CardContainer cards={ context.state.cards } handleCardClick={ context.handleCardClick }/>
+                    <TitleMessage>Welcome { context.state.user.name }</TitleMessage>
+                    { context.state.inMatch ?
+                        <>
+                            <Timer start={ context.state.start } handleReset={ context.handleReset }/>
+                            <CardContainer cards={ context.state.cards } handleCardClick={context.state.start ?  context.handleCardClick : "" }/>
+                            <StartButton/>
+                        </>
+                        : null }
+
                 </>
             ) }
         </AppContext.Consumer>
-        <StartButton/>
         <OnlinePlayersPanel/>
     </>
 );
