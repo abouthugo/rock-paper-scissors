@@ -67,8 +67,6 @@ class AppContextProvider extends Component {
 
         // listen for connections
         this.socket.on("connected", ({user}) => {
-            console.log("connected Called");
-            console.log(user);
             this.setState(prevState => ({
                players: [...prevState.players, user]
             }));
@@ -87,8 +85,6 @@ class AppContextProvider extends Component {
 
         // Send connection message
         this.socket.emit("connected", {user: this.state.user});
-
-        setTimeout(()=> console.log(this.state), 1000);
     };
 
     /**
@@ -106,7 +102,6 @@ class AppContextProvider extends Component {
                 choice: cards[0].name
             })
         }, 10);
-        console.log("Started")
     };
 
     /**
@@ -118,7 +113,6 @@ class AppContextProvider extends Component {
             inMatch: false,
             cards: initialCards(),
             choice: 1 });
-        console.log("Reset");
     };
 
     /**

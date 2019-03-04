@@ -42,7 +42,6 @@ export default class Timer extends Component{
     }
 
     tick = () => {
-        console.log("Ticking");
         if(this.state.remaining < 2)
             clearInterval(this.intervalHandle);
         this.setState(prevState => ({
