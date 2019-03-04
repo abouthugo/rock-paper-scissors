@@ -24,3 +24,11 @@
   }
 
 }
+
+.figure {
+  cursor: pointer;
+  border-radius: 120px;
+  &:hover {
+    border: 1px solid gold;
+  }
+}
