@@ -7,17 +7,19 @@ import Welcome from './components/Welcome';
 class App extends Component {
     render() {
         return (
-            <AppContainer>
-                <AppContextProvider>
-                    <AppContext.Consumer>
-                        { context => {
-                            return context.state.registered ?
-                                <Game {...context.state} handleCardClick={context.handleCardClick} handleReset={context.handleReset}/>
-                                : <Welcome/>;
-                        } }
-                    </AppContext.Consumer>
-                </AppContextProvider>
-            </AppContainer>
+            <AppContextProvider>
+                <AppContext.Consumer>
+                    { context => (
+                        <AppContainer>
+                            { context.state.registered ?
+                                <Game user={ context.state.user } inMatch={ context.state.inMatch }/>
+                                : <Welcome/>
+                            }
+                        </AppContainer>
+                    ) }
+                </AppContext.Consumer>
+            </AppContextProvider>
+
         );
     }
 }
