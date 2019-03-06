@@ -24,3 +24,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ## Dev notes
 
 Useful socket.io emitters [click me](https://stackoverflow.com/questions/10058226/send-response-to-all-clients-except-sender)
+[Socket io Cheat Sheet](https://socket.io/docs/emit-cheatsheet/)
