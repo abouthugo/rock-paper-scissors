@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77e8a1dc-0890-4e7a-a142-4e40f36e1599" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Context/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Context/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Game/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Game/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -32,7 +32,7 @@
           <entry key="css" value="2" />
           <entry key="development" value="1" />
           <entry key="gitignore" value="1" />
-          <entry key="js" value="145" />
+          <entry key="js" value="148" />
           <entry key="json" value="6" />
           <entry key="local" value="4" />
           <entry key="lock" value="1" />
@@ -49,7 +49,7 @@
           <entry key="Git file" value="1" />
           <entry key="Image" value="3" />
           <entry key="JSON" value="6" />
-          <entry key="JavaScript" value="145" />
+          <entry key="JavaScript" value="148" />
           <entry key="Markdown" value="12" />
           <entry key="SCSS" value="22" />
           <entry key="TypeScript" value="1" />
@@ -64,7 +64,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="development" value="20" />
-          <entry key="js" value="15629" />
+          <entry key="js" value="15755" />
           <entry key="json" value="211" />
           <entry key="local" value="1" />
           <entry key="md" value="1168" />
@@ -75,7 +75,7 @@
         <counts>
           <entry key=".env file" value="21" />
           <entry key="JSON" value="211" />
-          <entry key="JavaScript" value="15519" />
+          <entry key="JavaScript" value="15645" />
           <entry key="Less" value="110" />
           <entry key="Markdown" value="1168" />
           <entry key="SCSS" value="1566" />
@@ -90,14 +90,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Context/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="27" column="61" lean-forward="true" selection-start-line="27" selection-start-column="61" selection-end-line="27" selection-end-column="61" />
+            <state relative-caret-position="667">
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
               <folding>
                 <element signature="e#1142#2311#0" />
                 <element signature="e#2999#3349#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="14" column="108" selection-start-line="14" selection-start-column="108" selection-end-line="14" selection-end-column="108" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Game/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="13" column="64" selection-start-line="13" selection-start-column="64" selection-end-line="13" selection-end-column="64" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -120,6 +141,7 @@
       <find>reset</find>
       <find>console.l</find>
       <find>console.log</find>
+      <find>start</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -144,7 +166,6 @@
         <option value="$PROJECT_DIR$/src/components/Welcome/Button.js" />
         <option value="$PROJECT_DIR$/src/components/Button.js" />
         <option value="$PROJECT_DIR$/src/components/Button.module.scss" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/components/Welcome/Input.module.scss" />
         <option value="$PROJECT_DIR$/src/components/Welcome/WelcomeView.js" />
         <option value="$PROJECT_DIR$/src/components/Welcome/index.js" />
@@ -158,13 +179,14 @@
         <option value="$PROJECT_DIR$/src/components/User.module.scss" />
         <option value="$PROJECT_DIR$/src/components/User.js" />
         <option value="$PROJECT_DIR$/public/manifest.json" />
-        <option value="$PROJECT_DIR$/src/components/Game/index.js" />
         <option value="$PROJECT_DIR$/src/components/Card.module.scss" />
         <option value="$PROJECT_DIR$/src/components/Timer.js" />
         <option value="$PROJECT_DIR$/src/components/Card.Container.js" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/components/StartButton.js" />
         <option value="$PROJECT_DIR$/src/components/Context/index.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/components/Game/index.js" />
       </list>
     </option>
   </component>
@@ -275,12 +297,12 @@
       <workItem from="1551633818075" duration="543000" />
       <workItem from="1551738645163" duration="4510000" />
       <workItem from="1551743951737" duration="649000" />
-      <workItem from="1551908907177" duration="956000" />
+      <workItem from="1551908907177" duration="1952000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50791000" />
+    <option name="totallyTimeSpent" value="51787000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
@@ -418,13 +440,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/subscriptions/index.js" />
-    <entry file="file://$PROJECT_DIR$/src/components/Welcome/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="31" column="54" selection-start-line="31" selection-start-column="54" selection-end-line="31" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Welcome/Input.Container.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="376">
@@ -498,13 +513,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Card.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -540,13 +548,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Game/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
@@ -566,12 +567,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Context/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="27" column="61" lean-forward="true" selection-start-line="27" selection-start-column="61" selection-end-line="27" selection-end-column="61" />
+        <state relative-caret-position="667">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
           <folding>
             <element signature="e#1142#2311#0" />
             <element signature="e#2999#3349#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Welcome/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Game/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" column="64" selection-start-line="13" selection-start-column="64" selection-end-line="13" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="14" column="108" selection-start-line="14" selection-start-column="108" selection-end-line="14" selection-end-column="108" />
         </state>
       </provider>
     </entry>

@@ -10,12 +10,11 @@ class App extends Component {
             <AppContainer>
                 <AppContextProvider>
                     <AppContext.Consumer>
-                        {context => {
-                            if(context.state.registered){
-                                return <Game/>;
-                            }
-                            return <Welcome/>;
-                        }}
+                        { context => {
+                            return context.state.registered ?
+                                <Game {...context.state} handleCardClick={context.handleCardClick} handleReset={context.handleReset}/>
+                                : <Welcome/>;
+                        } }
                     </AppContext.Consumer>
                 </AppContextProvider>
             </AppContainer>
