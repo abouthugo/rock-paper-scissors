@@ -11,10 +11,10 @@ class AppContextProvider extends Component {
             start: false, // This is for the timer
             registered: false, // This is for the initial login
             inMatch: false, // Signals whether user is in a match or not
-            user: {},
-            players: [],
-            cards: [],
-            choice: 0,
+            user: {}, // Self user object
+            players: [], // List of players online
+            cards: [], // Set of cards for a given game
+            choice: 0, // Default choice of card
         };
     }
 
@@ -24,11 +24,18 @@ class AppContextProvider extends Component {
         });
     }
 
+    /**
+     * TODO: emit a message to the user that has been clicked
+     */
     sendMatchRequest = () => {
-        // TODO: emit a message to the user that has been clicked
+
         this.setState({inMatch: true});
     };
 
+    /**
+     * Instantiates the user object and sets registered flag on, it then connect the user to the server via socket.
+     * @param player_name
+     */
     setPlayerName = (player_name) => {
         this.setState({
             user: {
@@ -88,7 +95,7 @@ class AppContextProvider extends Component {
     };
 
     /**
-     * Starts the timer
+     * Starts the timer, shows the controls and reveals the cards to the user
      */
     handleStart = () => {
         this.setState({
@@ -101,11 +108,11 @@ class AppContextProvider extends Component {
             this.setState({
                 choice: cards[0].name
             })
-        }, 10);
+        }, 1);
     };
 
     /**
-     * Resets the timer
+     * Resets the timer and hides the controls
      */
     handleReset = () => {
         this.setState({
@@ -151,6 +158,10 @@ class AppContextProvider extends Component {
 
 }
 
+/**
+ * Returns an array that represents 3 random cards of the set {rock, paper, scissors}
+ * @returns {Array}
+ */
 function randomCards() {
     let choices = ["rock", "paper", "scissors"];
     let res = [];
@@ -165,6 +176,10 @@ function randomCards() {
     return res;
 }
 
+/**
+ * Returns an array that represents 3 "rand" cards
+ * @returns {Array}
+ */
 function initialCards(){
     let res = [];
     for(let i =0; i < 3; i ++){
