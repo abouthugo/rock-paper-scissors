@@ -4,8 +4,7 @@ import Timer from '../Timer';
 import CardContainer from '../Card.Container';
 import StartButton from '../StartButton';
 
-const Control = ({inMatch}) => (
-    inMatch ?
+const Control = () => (
     <AppContext.Consumer>
         {context => (
             <>
@@ -15,8 +14,6 @@ const Control = ({inMatch}) => (
             </>
         )}
     </AppContext.Consumer>
-        :
-        null
 );
 
 export default Control;

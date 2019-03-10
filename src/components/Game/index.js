@@ -6,7 +6,7 @@ import Control from "../Control";
 const Game = ({ inMatch, user }) => (
     <>
         <TitleMessage>Welcome { user.name }</TitleMessage>
-        <Control inMatch={ inMatch }/>
+        { inMatch && <Control/> }
         <OnlinePlayersPanel/>
     </>
 );
