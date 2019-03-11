@@ -15,6 +15,8 @@ class AppContextProvider extends Component {
             players: [], // List of players online
             cards: [], // Set of cards for a given game
             choice: 0, // Default choice of card
+            requests: [], // To signal if a request has been received
+            outRequest: 'none',
         };
     }
 
@@ -27,10 +29,13 @@ class AppContextProvider extends Component {
     /**
      * TODO: emit a message to the user that has been clicked
      */
-    sendMatchRequest = () => {
-
-        this.setState({inMatch: true});
+    sendMatchRequest = (id) => {
+        this.socket.emit("match", { id });
+        // TODO: use this to play a waiting animation until outRequest turns to "fulfilled
+        this.setState({ outRequest: 'sent' });
     };
+
+    handleResponse = (req) => window.confirm(`Would you like to start a new battle with ${req.name}`);
 
     /**
      * Instantiates the user object and sets registered flag on, it then connect the user to the server via socket.
@@ -54,11 +59,11 @@ class AppContextProvider extends Component {
         this.socket = io("/");
         window.addEventListener("beforeunload", (e) => {
             e.preventDefault();
-            this.socket.emit("leave", {id: this.state.user.id});
+            this.socket.emit("leave", { id: this.state.user.id });
         });
 
         // Get the id
-        this.socket.on("id", ({id}) => {
+        this.socket.on("id", ({ id }) => {
             this.setState(prevState => ({
                 user: {
                     ...prevState.user,
@@ -73,16 +78,16 @@ class AppContextProvider extends Component {
         });
 
         // listen for connections
-        this.socket.on("connected", ({user}) => {
+        this.socket.on("connected", ({ user }) => {
             this.setState(prevState => ({
-               players: [...prevState.players, user]
+                players: [...prevState.players, user]
             }));
         });
 
         // Listen for when someone leaves
-        this.socket.on("leave", ({id}) => {
+        this.socket.on("leave", ({ id }) => {
 
-            let {players} = this.state;
+            let { players } = this.state;
             let update = players.filter(el => el.id !== id);
             this.setState({
                 players: update
@@ -90,8 +95,29 @@ class AppContextProvider extends Component {
 
         });
 
+        // Get a match request
+        this.socket.on("match", ({ sender }) => {
+            console.log(`ID: ${sender.id}, sender: ${sender.name}`);
+            let answer = this.handleResponse(sender);
+            this.socket.emit("confirm", ({ id: sender.id, answer }));
+            this.setState({inMatch: answer});
+        });
+
+        // Handle confirmations
+        this.socket.on("confirm", answer => {
+            if (answer)
+                this.setState({
+                    inMatch: true,
+                    outRequest: "accepted"
+                });
+            else
+                this.setState({
+                    outRequest: "rejected"
+                });
+        });
+
         // Send connection message
-        this.socket.emit("connected", {user: this.state.user});
+        this.socket.emit("connected", { user: this.state.user });
     };
 
     /**
@@ -104,7 +130,7 @@ class AppContextProvider extends Component {
         });
 
         setTimeout(() => {
-            let {cards} = this.state;
+            let { cards } = this.state;
             this.setState({
                 choice: cards[0].name
             })
@@ -119,7 +145,8 @@ class AppContextProvider extends Component {
             start: false,
             inMatch: false,
             cards: initialCards(),
-            choice: 1 });
+            choice: 1
+        });
     };
 
     /**
@@ -127,7 +154,7 @@ class AppContextProvider extends Component {
      * @param id
      * @param name
      */
-    handleCardClick = ({id, name}) => {
+    handleCardClick = ({ id, name }) => {
         let { cards } = this.state;
         let newcards = cards.map(card => {
             if (card.id === id) {
@@ -180,9 +207,9 @@ function randomCards() {
  * Returns an array that represents 3 "rand" cards
  * @returns {Array}
  */
-function initialCards(){
+function initialCards() {
     let res = [];
-    for(let i =0; i < 3; i ++){
+    for (let i = 0; i < 3; i++) {
         res.push({
             name: "rand",
             active: false,

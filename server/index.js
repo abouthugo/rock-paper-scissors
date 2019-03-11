@@ -19,13 +19,27 @@ io.on('connection', (player) => {
 
     // When a new player connects, let people know
     player.on("connected", ({ user }) => {
-        let data = { ...user, id: player.id } ;
+        let data = { ...user, id: player.id };
         player.broadcast.emit("connected", { user: { ...data } });
         connectedUsers.push({ ...data });
     });
 
+    player.on("match", ({ id }) => {
+        let sender = find(player.id, connectedUsers);
+        let receiver = find(id, connectedUsers);
+        console.log(`${sender.name} is trying to battle with ${receiver.name}`);
+        player.broadcast.to(id).emit('match', { sender });
+    });
+
+    player.on('confirm', ({ id, answer }) => {
+        if (answer) console.log("Battle confirmed!");
+        else console.log("Battle declined");
+
+        player.broadcast.to(id).emit('confirm', { answer });
+    });
+
     // When a player leaves
-    player.on("leave", ({id}) => {
+    player.on("leave", ({ id }) => {
         console.log(`Player ${player.id} left`);
         io.sockets.emit("leave", { id: player.id });
         connectedUsers = connectedUsers.filter(v => v.id !== id);
@@ -33,3 +47,10 @@ io.on('connection', (player) => {
         player.disconnect(0);
     });
 });
+
+function find(id, arr) {
+    for (let u of arr) {
+        if (u.id === id)
+            return u;
+    }
+}
