@@ -104,16 +104,18 @@ class AppContextProvider extends Component {
         });
 
         // Handle confirmations
-        this.socket.on("confirm", answer => {
-            if (answer)
+        this.socket.on("confirm", ({answer}) => {
+            if (answer) {
                 this.setState({
                     inMatch: true,
                     outRequest: "accepted"
                 });
-            else
+            } else {
                 this.setState({
                     outRequest: "rejected"
                 });
+            }
+
         });
 
         // Send connection message

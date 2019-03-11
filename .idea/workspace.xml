@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77e8a1dc-0890-4e7a-a142-4e40f36e1599" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Context/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Context/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OnlinePlayersPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OnlinePlayersPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/User.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,8 +21,8 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/server/index.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="417">
-                    <caret line="30" column="58" lean-forward="true" selection-start-line="30" selection-start-column="58" selection-end-line="30" selection-end-column="58" />
+                  <state relative-caret-position="408">
+                    <caret line="37" column="51" lean-forward="true" selection-start-line="37" selection-start-column="51" selection-end-line="37" selection-end-column="51" />
                   </state>
                 </provider>
               </entry>
@@ -54,7 +50,7 @@
           <entry key="css" value="2" />
           <entry key="development" value="1" />
           <entry key="gitignore" value="1" />
-          <entry key="js" value="181" />
+          <entry key="js" value="183" />
           <entry key="json" value="7" />
           <entry key="local" value="4" />
           <entry key="lock" value="1" />
@@ -71,7 +67,7 @@
           <entry key="Git file" value="1" />
           <entry key="Image" value="3" />
           <entry key="JSON" value="7" />
-          <entry key="JavaScript" value="181" />
+          <entry key="JavaScript" value="183" />
           <entry key="Markdown" value="14" />
           <entry key="SCSS" value="22" />
           <entry key="TypeScript" value="1" />
@@ -86,7 +82,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="development" value="20" />
-          <entry key="js" value="18700" />
+          <entry key="js" value="18726" />
           <entry key="json" value="211" />
           <entry key="local" value="1" />
           <entry key="md" value="1195" />
@@ -97,7 +93,7 @@
         <counts>
           <entry key=".env file" value="21" />
           <entry key="JSON" value="211" />
-          <entry key="JavaScript" value="18590" />
+          <entry key="JavaScript" value="18616" />
           <entry key="Less" value="110" />
           <entry key="Markdown" value="1195" />
           <entry key="SCSS" value="1566" />
@@ -112,29 +108,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Context/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2484">
-              <caret line="109" column="34" lean-forward="true" selection-start-line="109" selection-start-column="34" selection-end-line="109" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/OnlinePlayersPanel.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/User.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+            <state relative-caret-position="413">
+              <caret line="115" column="19" lean-forward="true" selection-start-line="115" selection-start-column="19" selection-end-line="115" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -158,6 +136,7 @@
       <find>console.log</find>
       <find>start</find>
       <find>e</find>
+      <find>inMatch</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -261,7 +240,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="pack&#9;FILE&#9;file:///Users/hugo/github/rps/package.json&#10;cardcont&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Card.Container.js&#10;Wrapper&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/CardWrapper.js&#10;ap&#9;FILE&#9;file:///Users/hugo/github/rps/src/App.js&#10;server/inde&#9;FILE&#9;file:///Users/hugo/github/rps/server/index.js&#10;Onl&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/OnlinePlayersPanel.js&#10;user&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/User.js&#10;onli&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/OnlinePlayersPanel.js&#10;context&#9;null&#9;null&#10;Conte&#9;null&#9;null&#10;cont&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/AppContainer.js&#10;button&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/StartButton.js&#10;contex&#9;null&#9;null&#10;conte&#9;null&#9;null&#10;card&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Card.Container.js&#10;timer&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Timer.js&#10;user.mod&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/User.module.scss&#10;game&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Game&#10;cards&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Card.module.scss&#10;use&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/User.js&#10;Game&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Game&#10;TODO&#9;FILE&#9;file:///Users/hugo/github/rps/TODO.md&#10;online&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/OnlinePlayersPanel.js&#10;server&#9;null&#9;null&#10;Contex&#9;null&#9;null&#10;app&#9;FILE&#9;file:///Users/hugo/github/rps/src/App.js&#10;react-scrip&#9;FILE&#9;file:///Users/hugo/github/rps/node_modules/react-scripts&#10;dev&#9;FILE&#9;file:///Users/hugo/github/rps/.env.development.local&#10;Butt&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Button.js&#10;Wel&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Welcome/WelcomeView.js&#10;inpu&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Welcome/Input.module.scss&#10;Cards&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Card.module.scss&#10;Inp&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Welcome/Input.module.scss&#10;index&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Welcome/index.js&#10;App&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/AppContainer.js&#10;todo&#9;FILE&#9;file:///Users/hugo/github/rps/TODO.md&#10;CARD&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Card.Container.js&#10;cardmod&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Card.module.scss" />
+    <property name="SearchEverywhereHistoryKey" value="context&#9;null&#9;null&#10;con&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Card.Container.js&#10;pack&#9;FILE&#9;file:///Users/hugo/github/rps/package.json&#10;cardcont&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Card.Container.js&#10;Wrapper&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/CardWrapper.js&#10;ap&#9;FILE&#9;file:///Users/hugo/github/rps/src/App.js&#10;server/inde&#9;FILE&#9;file:///Users/hugo/github/rps/server/index.js&#10;Onl&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/OnlinePlayersPanel.js&#10;user&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/User.js&#10;onli&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/OnlinePlayersPanel.js&#10;Conte&#9;null&#9;null&#10;cont&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/AppContainer.js&#10;button&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/StartButton.js&#10;contex&#9;null&#9;null&#10;conte&#9;null&#9;null&#10;card&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Card.Container.js&#10;timer&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Timer.js&#10;user.mod&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/User.module.scss&#10;game&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Game&#10;cards&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Card.module.scss&#10;use&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/User.js&#10;Game&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Game&#10;TODO&#9;FILE&#9;file:///Users/hugo/github/rps/TODO.md&#10;online&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/OnlinePlayersPanel.js&#10;server&#9;null&#9;null&#10;Contex&#9;null&#9;null&#10;app&#9;FILE&#9;file:///Users/hugo/github/rps/src/App.js&#10;react-scrip&#9;FILE&#9;file:///Users/hugo/github/rps/node_modules/react-scripts&#10;dev&#9;FILE&#9;file:///Users/hugo/github/rps/.env.development.local&#10;Butt&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Button.js&#10;Wel&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Welcome/WelcomeView.js&#10;inpu&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Welcome/Input.module.scss&#10;Cards&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Card.module.scss&#10;Inp&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Welcome/Input.module.scss&#10;index&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Welcome/index.js&#10;App&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/AppContainer.js&#10;todo&#9;FILE&#9;file:///Users/hugo/github/rps/TODO.md&#10;CARD&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Card.Container.js&#10;cardmod&#9;FILE&#9;file:///Users/hugo/github/rps/src/components/Card.module.scss" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.env.development.local" />
     <property name="full.screen.before.presentation.mode" value="false" />
@@ -321,18 +300,18 @@
       <workItem from="1551743951737" duration="649000" />
       <workItem from="1551908907177" duration="6065000" />
       <workItem from="1551994221137" duration="1021000" />
-      <workItem from="1552237567476" duration="8150000" />
+      <workItem from="1552237567476" duration="8727000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65071000" />
+    <option name="totallyTimeSpent" value="65648000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24894515" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24894515" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -568,13 +547,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Card.Container.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/CardWrapper.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -606,20 +578,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="30" column="58" lean-forward="true" selection-start-line="30" selection-start-column="58" selection-end-line="30" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Context/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2484">
-          <caret line="109" column="34" lean-forward="true" selection-start-line="109" selection-start-column="34" selection-end-line="109" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/OnlinePlayersPanel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
@@ -629,8 +587,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/User.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        <state relative-caret-position="161">
+          <caret line="9" column="4" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="37" column="51" lean-forward="true" selection-start-line="37" selection-start-column="51" selection-end-line="37" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Card.Container.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Context/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="115" column="19" lean-forward="true" selection-start-line="115" selection-start-column="19" selection-end-line="115" selection-end-column="19" />
         </state>
       </provider>
     </entry>
