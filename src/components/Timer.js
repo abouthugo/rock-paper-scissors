@@ -42,8 +42,10 @@ export default class Timer extends Component {
     }
 
     tick = () => {
-        if (this.state.remaining < 2)
+        if (this.state.remaining < 2){
             clearInterval(this.intervalHandle);
+            setTimeout(this.props.timerDone, 2);
+        }
         this.setState(prevState => ({
             remaining: prevState.remaining - 1
         }));
@@ -63,7 +65,6 @@ export default class Timer extends Component {
         }
         else {
             percentage = 1;
-            this.props.timerDone();
         }
         return (
             <TimeMessage
