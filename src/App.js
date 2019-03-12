@@ -12,7 +12,8 @@ class App extends Component {
                     { context => (
                         <AppContainer>
                             { context.state.registered ?
-                                <Game user={ context.state.user } inMatch={ context.state.inMatch }/>
+                                <Game user={ context.state.user } inMatch={ context.state.inMatch }
+                                      status={ context.state.outRequest }/>
                                 : <Welcome/>
                             }
                         </AppContainer>
