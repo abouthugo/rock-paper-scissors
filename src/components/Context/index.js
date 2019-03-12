@@ -127,6 +127,7 @@ class AppContextProvider extends Component {
                     inMatch: answer,
                     title_message: "Rock, Paper, Scissors !!"
                 });
+                this.handleStart(); // start game right away
             } else {
                 this.setState({ inMatch: answer });
             }
@@ -141,6 +142,7 @@ class AppContextProvider extends Component {
                     outRequest: "accepted",
                     title_message: "Rock, Paper, Scissors !!"
                 });
+                this.handleStart(); // start game right away
             } else {
                 this.opponent = null;
                 this.setState({
@@ -180,6 +182,7 @@ class AppContextProvider extends Component {
                 case 0:
                     this.setState({
                         title_message: "Its a draw! 😱",
+                        background: "#FFFFFF"
                     });
                     break;
                 default:
