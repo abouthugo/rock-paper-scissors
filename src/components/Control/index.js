@@ -8,7 +8,7 @@ const Control = () => (
     <AppContext.Consumer>
         {context => (
             <>
-                <Timer start={ context.state.start } handleReset={ context.handleReset }/>
+                <Timer start={ context.state.start } handleReset={ context.handleReset } timerDone={context.timerDone}/>
                 <CardContainer cards={ context.state.cards } handleCardClick={ context.state.start ? context.handleCardClick : "" }/>
                 <StartButton/>
             </>

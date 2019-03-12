@@ -38,6 +38,11 @@ io.on('connection', (player) => {
         player.broadcast.to(id).emit('confirm', { answer });
     });
 
+    player.on('choice', ({to, choice}) => {
+        console.log(choice);
+        player.broadcast.to(to).emit('choice', {choice});
+    });
+
     // When a player leaves
     player.on("leave", ({ id }) => {
         console.log(`Player ${player.id} left`);

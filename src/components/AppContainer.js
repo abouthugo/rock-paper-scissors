@@ -18,6 +18,7 @@ const AppContainer = styled.section`
   height: 100%;
   justify-items: center;
   align-items: center;
+  background-color: ${props => props.background ? props.background : "white"};
 `;
 
 export default AppContainer;

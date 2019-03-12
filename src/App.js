@@ -10,10 +10,11 @@ class App extends Component {
             <AppContextProvider>
                 <AppContext.Consumer>
                     { context => (
-                        <AppContainer>
+                        <AppContainer background={context.state.background}>
                             { context.state.registered ?
                                 <Game user={ context.state.user } inMatch={ context.state.inMatch }
-                                      status={ context.state.outRequest }/>
+                                      status={ context.state.outRequest }
+                                      title_message={ context.state.title_message }/>
                                 : <Welcome/>
                             }
                         </AppContainer>
