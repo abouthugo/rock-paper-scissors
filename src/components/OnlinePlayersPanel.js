@@ -19,19 +19,26 @@ const OnlinePlayersPanel = () => (
     <Panel>
         <p>Available Players</p>
         <AppContext.Consumer>
-            {context => (
-                <>
-                    {
-                        (context.state.players.length>0) ?
-                            context.state.players.map(player => (
-                                <User user={player}/>
-                            )):
-                            <div>No players available at this time</div>
-                    }
-                </>
-            )}
+            { context => {
+                const availablePlayers = context.state.players.filter(byAvailable);
+                return (
+                    <>
+                        {
+                            (availablePlayers.length > 0) ?
+                                availablePlayers.map(player => (
+                                    <User user={ player }/>
+                                )) :
+                                <div>No players available at this time</div>
+                        }
+                    </>
+                )
+            } }
         </AppContext.Consumer>
     </Panel>
 );
+
+function byAvailable(player) {
+    return player.available;
+}
 
 export default OnlinePlayersPanel;
