@@ -13,8 +13,7 @@ class AppContextProvider extends Component {
             inMatch: false, // Signals whether user is in a match or not
             user: {}, // Self user object
             players: [], // List of players online
-            cards: [], // Set of cards for a given game
-            choice: 0, // Default choice of card
+            choice: null, // Default choice of card
             requests: [], // To signal if a request has been received
             outRequest: 'none',
             background: "#FFFFFF",
@@ -22,11 +21,6 @@ class AppContextProvider extends Component {
         };
     }
 
-    componentDidMount() {
-        this.setState({
-            cards: initialCards()
-        });
-    }
 
     /**
      * Sends a request for a match to a player
@@ -73,15 +67,16 @@ class AppContextProvider extends Component {
         setTimeout(this.connectUser, 200);
     };
 
-    toggleAvailable(){
-        const {user} = this.state;
-        const update = {...user};
+    toggleAvailable() {
+        const { user } = this.state;
+        const update = { ...user };
         update.available = !update.available;
-        this.socket.emit("update", ({user: update}));
+        this.socket.emit("update", ({ user: update }));
         this.setState({
             user: update
         });
     }
+
     /**
      * Set up socket connection, executed after user picks an username
      */
@@ -193,7 +188,7 @@ class AppContextProvider extends Component {
                 case 0:
                     this.setState({
                         title_message: "Its a draw! 😱",
-                        background: "#FFFFFF"
+                        background: "#a5b9ff"
                     });
                     break;
                 default:
@@ -228,15 +223,7 @@ class AppContextProvider extends Component {
     handleStart = () => {
         this.setState({
             start: true,
-            cards: randomCards(),
         });
-
-        setTimeout(() => {
-            let { cards } = this.state;
-            this.setState({
-                choice: cards[0].name
-            })
-        }, 1);
     };
 
     /**
@@ -247,7 +234,6 @@ class AppContextProvider extends Component {
         this.setState({
             start: false,
             inMatch: false,
-            cards: initialCards(),
             choice: null,
             title_message: "",
             background: "#FFFFFF"
@@ -255,24 +241,10 @@ class AppContextProvider extends Component {
     };
 
     // gets triggered when the timer is done
-    timerDone = () => {
-        this.socket.emit("choice", ({ to: this.opponent, choice: this.state.choice }));
-    };
-
-    /**
-     * Adds a class to card that has been clicked
-     * @param id
-     * @param name
-     */
-    handleCardClick = ({ id, name }) => {
-        let { cards } = this.state;
-        let newcards = cards.map(card => {
-            if (card.id === id) {
-                return { name: card.name, active: true, id: card.id }
-            } else
-                return { name: card.name, active: false, id: card.id }
+    timerDone = (choice) => {
+        this.setState({ choice }, () => {
+            this.socket.emit("choice", ({ to: this.opponent, choice }));
         });
-        this.setState({ cards: newcards, choice: name });
     };
 
 
@@ -283,7 +255,6 @@ class AppContextProvider extends Component {
                     state: this.state,
                     handleStart: this.handleStart,
                     handleReset: this.handleReset,
-                    handleCardClick: this.handleCardClick,
                     setPlayerName: this.setPlayerName,
                     sendMatchRequest: this.sendMatchRequest,
                     timerDone: this.timerDone
@@ -296,38 +267,5 @@ class AppContextProvider extends Component {
 
 }
 
-/**
- * Returns an array that represents 3 random cards of the set {rock, paper, scissors}
- * @returns {Array}
- */
-function randomCards() {
-    let choices = ["rock", "paper", "scissors"];
-    let res = [];
-    for (let i in choices) {
-        let n = Math.floor(Math.random() * 3);
-        res.push({
-            name: choices[n],
-            active: false,
-            id: i
-        });
-    }
-    return res;
-}
-
-/**
- * Returns an array that represents 3 "rand" cards
- * @returns {Array}
- */
-function initialCards() {
-    let res = [];
-    for (let i = 0; i < 3; i++) {
-        res.push({
-            name: "rand",
-            active: false,
-            id: i
-        });
-    }
-    return res;
-}
 
 export { AppContext, AppContextProvider }

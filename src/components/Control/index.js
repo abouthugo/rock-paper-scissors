@@ -1,19 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { AppContext } from '../Context';
 import Timer from '../Timer';
 import CardContainer from '../Card.Container';
 import StartButton from '../StartButton';
 
-const Control = () => (
-    <AppContext.Consumer>
-        {context => (
-            <>
-                <Timer start={ context.state.start } handleReset={ context.handleReset } timerDone={context.timerDone}/>
-                <CardContainer cards={ context.state.cards } handleCardClick={ context.state.start ? context.handleCardClick : "" }/>
-                <StartButton/>
-            </>
-        )}
-    </AppContext.Consumer>
-);
+export default class Control extends Component {
 
-export default Control;
+    constructor(){
+        super();
+        this.state = {
+            choice: null
+        };
+    }
+
+    handleUpdate = (choice) => {
+        this.setState({choice});
+    };
+
+    render() {
+        return (
+            <AppContext.Consumer>
+                { context => (
+                    <>
+                        <Timer start={ context.state.start } handleReset={ context.handleReset }
+                               timerDone={ context.timerDone } choice={this.state.choice}/>
+                        <CardContainer cards={ context.state.cards }
+                                       handleUpdate={this.handleUpdate}/>
+                        <StartButton/>
+                    </>
+                ) }
+            </AppContext.Consumer>
+        )
+    }
+};

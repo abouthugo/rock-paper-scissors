@@ -44,14 +44,16 @@ export default class Timer extends Component {
     tick = () => {
         if (this.state.remaining < 2){
             clearInterval(this.intervalHandle);
-            setTimeout(this.props.timerDone, 2);
+            setTimeout(() => {
+                this.props.timerDone(this.props.choice);
+            }, 2);
         }
         this.setState(prevState => ({
             remaining: prevState.remaining - 1
         }));
     };
 
-    handleClick = () => {
+    reset = () => {
         this.setState({ remaining: 5, start: false });
         this.props.handleReset();
     };
@@ -72,7 +74,7 @@ export default class Timer extends Component {
                 color={ remaining === 0 ? "blue" : "white" }
                 background={ remaining === 0 ? "white" : null }
                 cursor={ remaining === 0 ? "pointer" : null }
-                onClick={ remaining === 0 ? this.handleClick : null }
+                onClick={ remaining === 0 ? this.reset : null }
             >{ remaining !== 0 ? remaining : "Exit" }</TimeMessage>
 
         )
