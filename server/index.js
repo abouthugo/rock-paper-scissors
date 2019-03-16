@@ -24,6 +24,7 @@ io.on('connection', (player) => {
         connectedUsers.push({ ...data });
     });
 
+    // When a player sends a match request
     player.on("match", ({ id }) => {
         let sender = find(player.id, connectedUsers);
         let receiver = find(id, connectedUsers);
@@ -31,6 +32,7 @@ io.on('connection', (player) => {
         player.broadcast.to(id).emit('match', { sender });
     });
 
+    // When the recipient of a match request answers
     player.on('confirm', ({ id, answer }) => {
         if (answer) console.log("Battle confirmed!");
         else console.log("Battle declined");
@@ -38,9 +40,17 @@ io.on('connection', (player) => {
         player.broadcast.to(id).emit('confirm', { answer });
     });
 
-    player.on('choice', ({to, choice}) => {
+    // When the time is up and the users send their choices to each other
+    player.on('choice', ({ to, choice }) => {
         console.log(choice);
-        player.broadcast.to(to).emit('choice', {choice});
+        player.broadcast.to(to).emit('choice', { choice });
+    });
+
+    // When player sends an update
+    player.on("update", ({user}) => {
+        console.log("We got an update!");
+        console.log(user);
+        player.broadcast.emit("update", ({user}));
     });
 
     // When a player leaves
@@ -53,6 +63,11 @@ io.on('connection', (player) => {
     });
 });
 
+/**
+ * Finds a user by its id on a given array and returns it
+ * @param id | id of the user to be returned
+ * @param arr | array containing a list of users
+ */
 function find(id, arr) {
     for (let u of arr) {
         if (u.id === id)

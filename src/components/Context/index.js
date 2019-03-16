@@ -73,6 +73,15 @@ class AppContextProvider extends Component {
         setTimeout(this.connectUser, 200);
     };
 
+    toggleAvailable(){
+        const {user} = this.state;
+        const update = {...user};
+        update.available = !update.available;
+        this.socket.emit("update", ({user: update}));
+        this.setState({
+            user: update
+        });
+    }
     /**
      * Set up socket connection, executed after user picks an username
      */
@@ -128,6 +137,7 @@ class AppContextProvider extends Component {
                     title_message: "Rock, Paper, Scissors !!"
                 });
                 this.handleStart(); // start game right away
+                this.toggleAvailable();
             } else {
                 this.setState({ inMatch: answer });
             }
@@ -143,6 +153,7 @@ class AppContextProvider extends Component {
                     title_message: "Rock, Paper, Scissors !!"
                 });
                 this.handleStart(); // start game right away
+                this.toggleAvailable();
             } else {
                 this.opponent = null;
                 this.setState({
@@ -191,6 +202,22 @@ class AppContextProvider extends Component {
 
         });
 
+        // Listen for user updates
+        this.socket.on("update", ({ user }) => {
+            const { players } = this.state;
+            const update = players.map(player => {
+                if (player.id === user.id) {
+                    // perform update
+                    return { ...user }
+                }
+                return player;
+            });
+
+            this.setState({
+                players: update
+            });
+        });
+
         // Send connection message
         this.socket.emit("connected", { user: this.state.user });
     };
@@ -216,11 +243,12 @@ class AppContextProvider extends Component {
      * Resets the timer and hides the controls
      */
     handleReset = () => {
+        this.toggleAvailable();
         this.setState({
             start: false,
             inMatch: false,
             cards: initialCards(),
-            choice: 1,
+            choice: null,
             title_message: "",
             background: "#FFFFFF"
         });
