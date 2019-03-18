@@ -45,7 +45,7 @@ export default class Timer extends Component {
         if (this.state.remaining < 2){
             clearInterval(this.intervalHandle);
             setTimeout(() => {
-                this.props.timerDone(this.props.choice);
+                this.props.timerDone();
             }, 2);
         }
         this.setState(prevState => ({
@@ -61,18 +61,12 @@ export default class Timer extends Component {
 
     render() {
         let { remaining } = this.state;
-        let percentage;
-        if (remaining !== 0) {
-            percentage = remaining * 20;
-        }
-        else {
-            percentage = 1;
-        }
+        let percentage = remaining * 20;
         return (
             <TimeMessage
                 percentage={ `${percentage}%` }
                 color={ remaining === 0 ? "blue" : "white" }
-                background={ remaining === 0 ? "white" : null }
+                background={ remaining === 0 ? "transparent" : null }
                 cursor={ remaining === 0 ? "pointer" : null }
                 onClick={ remaining === 0 ? this.reset : null }
             >{ remaining !== 0 ? remaining : "Exit" }</TimeMessage>

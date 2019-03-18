@@ -34,7 +34,7 @@ class AppContextProvider extends Component {
     window.confirm(`Would you like to start a new battle with ${req.name}`)
 
   handleLogic = (myChoice, opponent) => {
-      console.log(`Testing for ${myChoice} vs ${opponent}`)
+    console.log(`Testing for ${myChoice} vs ${opponent}`)
     if (myChoice === 'paper') {
       if (opponent === 'rock') return 1
       else if (opponent === 'scissors') return -1
@@ -177,7 +177,7 @@ class AppContextProvider extends Component {
 
     this.socket.on('choice', ({ choice }) => {
       // Moment of truth, this is where the logic for the game happens
-      this.setState({opponent: choice}, () =>{
+      this.setState({ opponent: choice }, () => {
         let myChoice = this.state.choice
         let results = this.handleLogic(myChoice, choice)
         console.log(`Test finished with ${results}`)
@@ -203,7 +203,7 @@ class AppContextProvider extends Component {
           default:
             break
         }
-      });
+      })
     })
 
     // Listen for user updates
@@ -252,10 +252,12 @@ class AppContextProvider extends Component {
   }
 
   // gets triggered when the timer is done
-  timerDone = choice => {
-    this.setState({ choice }, () => {
-      this.socket.emit('choice', { to: this.opponent, choice })
-    })
+  timerDone = () => {
+    this.socket.emit('choice', { to: this.opponent, choice: this.state.choice })
+  }
+
+  updateChoice = choice => {
+    this.setState({ choice })
   }
 
   render () {
@@ -267,7 +269,8 @@ class AppContextProvider extends Component {
           handleReset: this.handleReset,
           setPlayerName: this.setPlayerName,
           sendMatchRequest: this.sendMatchRequest,
-          timerDone: this.timerDone
+          timerDone: this.timerDone,
+          updateChoice: this.updateChoice
         }}
       >
         {this.props.children}
