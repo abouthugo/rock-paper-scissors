@@ -1,6 +1,6 @@
 ## App Demo
 
-![App Demo](/img/app_demo.gif)
+![App Demo](/img/app_demov2.gif)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
