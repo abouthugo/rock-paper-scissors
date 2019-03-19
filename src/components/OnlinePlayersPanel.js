@@ -4,8 +4,8 @@ import User from './User';
 import { AppContext } from './Context';
 
 const Panel = styled.div`
-  display: flex;
-  flex-flow: column wrap;
+  display: grid;
+  grid-template-columns: 1fr;
   border-right: 1px solid black;
   box-shadow: 10px 0 10px #BBBBBB;
   margin-right: 20px;
@@ -13,6 +13,7 @@ const Panel = styled.div`
   grid-area: panel;
   align-self: start;
   text-align: center;
+  overflow: scroll;
 `;
 
 const OnlinePlayersPanel = () => (
