@@ -60,7 +60,7 @@ export default class CardContainer extends Component {
             <CardWrapper>
                 { cards.map(card => (
                     <Card key={ card.id } card={ card }
-                          handleClick={ () => this.handleCardClick(card) }/>
+                          onClick={ () => this.handleCardClick(card) }/>
                 )) }
             </CardWrapper>
         );
