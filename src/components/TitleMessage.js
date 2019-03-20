@@ -2,7 +2,12 @@ import styled from 'styled-components';
 
 const TitleMessage = styled.p`
   grid-area: title;
-  font-size: 2.6rem;
+  @media (max-width: 636px){
+    font-size: 28px;
+  }
+  @media( min-width: 637px){
+    font-size: 42px;
+  }
 `;
 
 export default TitleMessage;
