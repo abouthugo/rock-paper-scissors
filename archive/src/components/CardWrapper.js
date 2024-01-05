@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const CardWrapper = styled.div`
     display: flex;
@@ -6,6 +6,6 @@ const CardWrapper = styled.div`
     max-height: 100%;
     justify-content: center;
     grid-area: controls;
-`;
+`
 
-export default CardWrapper;
+export default CardWrapper

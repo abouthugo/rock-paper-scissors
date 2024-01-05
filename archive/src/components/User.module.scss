@@ -1,34 +1,32 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-  & figure{
-    margin: 0;
-    padding: 0;
-    & img{
-      border-radius: 120px;
-      max-width: 100px;
-      max-height: 100px;
+    & figure {
+        margin: 0;
+        padding: 0;
+        & img {
+            border-radius: 120px;
+            max-width: 100px;
+            max-height: 100px;
+        }
     }
-  }
 
-
-  & p{
-    margin-top: 10px;
-    text-align: center;
-    border-top: 1px solid darkblue;
-    border-bottom: 1px solid black;
-    padding: 4px 4px;
-    font-size: 18px;
-  }
-
+    & p {
+        margin-top: 10px;
+        text-align: center;
+        border-top: 1px solid darkblue;
+        border-bottom: 1px solid black;
+        padding: 4px 4px;
+        font-size: 18px;
+    }
 }
 
 .figure {
-  cursor: pointer;
-  border-radius: 120px;
-  &:hover {
-    border: 1px solid gold;
-  }
+    cursor: pointer;
+    border-radius: 120px;
+    &:hover {
+        border: 1px solid gold;
+    }
 }

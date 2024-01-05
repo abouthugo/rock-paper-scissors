@@ -1,15 +1,15 @@
-import React from 'react';
-import { AppContext } from './Context';
-import Button from './Button';
+import React from 'react'
+import { AppContext } from './Context'
+import Button from './Button'
 
 const StartButton = () => (
     <AppContext.Consumer>
-        { context => {
+        {(context) => {
             if (!context.state.start)
-                return <Button onClick={ context.handleStart }>Start!</Button>;
-            else return null;
-        } }
+                return <Button onClick={context.handleStart}>Start!</Button>
+            else return null
+        }}
     </AppContext.Consumer>
-);
+)
 
-export default StartButton;
+export default StartButton

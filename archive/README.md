@@ -17,7 +17,6 @@ Then you can run:
 This runs the app in the development mode and starts the node server for the socket connections.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-
 ![Rules of the game](/img/rules.png)
 ![Outcomes](/img/outcomes.png)
 

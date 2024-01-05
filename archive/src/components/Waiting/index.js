@@ -1,6 +1,4 @@
-import React from 'react';
-import WaitingAnimation from './WaitingAnimation';
+import React from 'react'
+import WaitingAnimation from './WaitingAnimation'
 
-export default () => (
-    <WaitingAnimation/>
-);
+export default () => <WaitingAnimation />
