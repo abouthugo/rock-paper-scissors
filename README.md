@@ -1,27 +1,28 @@
-## App Demo
+## Usage
 
-![App Demo](/img/app_demov2.gif)
+```bash
+$ npm install # or pnpm install or yarn install
+```
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
 
 ## Available Scripts
 
-Before anything you want to install the dependencies by running the following command in the project directory:
-
-### `npm install`
-
-Then you can run:
+In the project directory, you can run:
 
 ### `npm run dev`
 
-This runs the app in the development mode and starts the node server for the socket connections.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Runs the app in the development mode.<br>
+Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
 
+### `npm run build`
 
-![Rules of the game](/img/rules.png)
-![Outcomes](/img/outcomes.png)
+Builds the app for production to the `dist` folder.<br>
+It correctly bundles Solid in production mode and optimizes the build for the best performance.
 
-## Dev notes
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
 
-Useful socket.io emitters [click me](https://stackoverflow.com/questions/10058226/send-response-to-all-clients-except-sender)
-[Socket io Cheat Sheet](https://socket.io/docs/emit-cheatsheet/)
+## Deployment
+
+Learn more about deploying your application with the [documentations](https://vitejs.dev/guide/static-deploy.html)
