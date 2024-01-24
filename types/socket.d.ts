@@ -1,5 +1,8 @@
 import { CardChoice, UserType } from '../src/game-state-provider'
 
+/**
+ * Server => Client
+ */
 export type ServerToClientEvents = {
     assignId: (userId: string) => void
     entering: (players: UserType[]) => void
@@ -10,6 +13,10 @@ export type ServerToClientEvents = {
     choice: (move: CardChoice) => void
     update: (user: UserType) => void
 }
+
+/**
+ * Client => Server
+ */
 export type ClientToServerEvents = {
     connected: (user: UserType) => void
     leave: (userId: string) => void
@@ -17,4 +24,5 @@ export type ClientToServerEvents = {
     confirmMatch: (playerId: string, confirmation: boolean) => void
     choice: (playerId: string, choice: CardChoice) => void
     update: (user: UserType) => void
+    heartbeat: () => void
 }

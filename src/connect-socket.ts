@@ -32,6 +32,10 @@ export default function connectSocket() {
         socket.emit('update', user)
     }
 
+    const sendHeartbeat = () => {
+        socket.emit('heartbeat')
+    }
+
     const subToMatch = (
         handler: (playerId: string, playerName: string) => void,
     ) => {
@@ -83,5 +87,6 @@ export default function connectSocket() {
         subToEntering,
         subToNewPlayer,
         subToPlayerLeft,
+        sendHeartbeat,
     }
 }

@@ -2,7 +2,7 @@ import { createServer } from 'http'
 import { Server } from 'socket.io'
 import logger from './logger'
 import { ClientToServerEvents, ServerToClientEvents } from 'types/socket'
-import { UserType } from '@/game-state-provider'
+import { DateTime } from 'luxon'
 
 type SocketData = {
     id: string
@@ -27,21 +27,24 @@ let io = new Server<
         methods: ['GET', 'POST'],
     },
 })
-let connectedUsers: UserType[] = []
+let connectedUsers: SocketData[] = []
 io.on('connection', (player) => {
     // Specify the type of player if known
     logger.info(`New player: ${player.id}`)
-
-    player.emit('assignId', player.id)
-
-    player.emit('entering', connectedUsers)
-
     player.on('connected', (user) => {
         // Specify the type of user if known
         //TODO@abouthugo: why did I spread the user object before?
         logger.info(`Welcome ${user.name}!`)
-        player.broadcast.emit('newPlayer', user)
-        connectedUsers.push(user)
+        player.data = Object.assign(user, {
+            lastHeartBeat: DateTime.now().toMillis(),
+            id: player.id,
+        })
+        player.broadcast.emit('newPlayer', { ...user, id: player.id })
+        connectedUsers.push(player.data)
+
+        player.emit('assignId', player.id)
+        // on entering get the current users that are connected
+        player.emit('entering', connectedUsers)
     })
 
     player.on('requestMatch', (id) => {
@@ -55,7 +58,7 @@ io.on('connection', (player) => {
             if (!sender || !receiver) return
             player.broadcast.to(id).emit('matchInvite', sender.id, sender.name)
         } catch (e) {
-            logger.info(e)
+            logger.error(e)
         }
     })
 
@@ -76,9 +79,24 @@ io.on('connection', (player) => {
     player.on('update', (user) => {
         // Specify the type of user if known
         //TODO@abouthugo: why is the user not updated in the server?
+        player.data.id
         logger.info('We got an update!')
         logger.info(user)
         player.broadcast.emit('update', user)
+    })
+
+    player.on('heartbeat', () => {
+        // Specify the type of user if known
+        logger.info('Heartbeat received!')
+        try {
+            let user = find(player.id, connectedUsers)
+            if (!user) return
+            user.lastHeartBeat = DateTime.now().toMillis()
+        } catch (e) {
+            logger.error(e)
+            logger.error({ data: player.data, connectedUsers })
+        }
+        // player.broadcast.emit('entering', connectedUsers)
     })
 
     player.on('leave', (playerId) => {
@@ -86,24 +104,31 @@ io.on('connection', (player) => {
         logger.info(`Player ${playerId} left`)
         io.sockets.emit('playerLeft', playerId)
         connectedUsers = connectedUsers.filter((u) => u.id !== playerId) // Specify the type of v if known
-        logger.info(connectedUsers)
         player.disconnect()
     })
 })
 
 setInterval(() => {
     logger.info({ connectedUsers }, 'connected users')
-}, 1000)
+    connectedUsers = connectedUsers.filter((u) => {
+        if (!isWithinTimeLimit(u.lastHeartBeat)) {
+            logger.warn(`User ${u.name} disconnected due to timeout`)
+            io.sockets.emit('playerLeft', u.id)
+            return false
+        }
+        return true
+    })
+}, 5000)
 
 httpServer.listen(5000, () => logger.info('Listening on port 5000'))
-interface User {
-    id: string
-    name: string
-}
 
-function find(id: string, arr: User[]): User | undefined {
+function find(id: string, arr: SocketData[]): SocketData | undefined {
     for (let u of arr) {
         if (u.id === id) return u
     }
     throw new Error('User not found')
+}
+
+function isWithinTimeLimit(lastHeartBeat: number): boolean {
+    return DateTime.now().toMillis() - lastHeartBeat < 5000
 }

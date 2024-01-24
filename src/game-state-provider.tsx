@@ -69,49 +69,82 @@ export function GameStateProvider(props: { children: JSXElement }) {
         socketAPI.update(user) // TODO: check if this works as intended, state might not be updated yet
     }
 
+    socketAPI.subToEntering((players) => {
+        console.log('entering', players)
+        setState(
+            'players',
+            players.filter((p) => p.id !== state.user?.id),
+        )
+    })
+
     socketAPI.subToIdAssignment((id) => {
         console.log('id assigned', id)
         setState('user', { id })
     })
-    socketAPI.subToConfirmation((confirmed) => {
-        if (!confirmed) {
-            setState({
-                opponent: null,
-                outRequest: 'rejected',
-                title_message: 'your request has been rejected',
-                background: 'tomato',
-            })
-            setTimeout(() => {
-                setState({
-                    title_message: 'Challenge someone else!',
-                    background: '#FFFFFF',
-                })
-            })
-            return
-        }
 
-        setState({
-            inMatch: true,
-            outRequest: 'accepted',
-            title_message: 'Rock, Paper, Scissors !!',
+    socketAPI.subToPlayerLeft((id) => {
+        console.log('player left', id)
+        setState(
+            'players',
+            state.players.filter((p) => p.id !== id),
+        )
+    })
+
+    function subToServerNotifications() {
+        socketAPI.subToNewPlayer((player) => {
+            console.log('new player', player)
+            setState('players', (players) => [...players, player])
         })
 
-        toggleAvailable()
-        handleStart() // start game right away
-    })
+        socketAPI.subToConfirmation((confirmed) => {
+            if (!confirmed) {
+                setState({
+                    opponent: null,
+                    outRequest: 'rejected',
+                    title_message: 'your request has been rejected',
+                    background: 'tomato',
+                })
+                setTimeout(() => {
+                    setState({
+                        title_message: 'Challenge someone else!',
+                        background: '#FFFFFF',
+                    })
+                })
+                return
+            }
+
+            setState({
+                inMatch: true,
+                outRequest: 'accepted',
+                title_message: 'Rock, Paper, Scissors !!',
+            })
+
+            toggleAvailable()
+            handleStart() // start game right away
+        })
+
+        socketAPI.subToMatch((playerId, playerName) => {
+            alert("You've been challenged by " + playerName)
+        })
+    }
 
     const handleStart = () => {
         setState('start', true)
     }
+
     const handleReset = () => {
         //TODO: Reset the game state
     }
-    const setPlayerName = (name: string) => {
+
+    function setPlayerName(name: string) {
         console.log('player set')
         setState('user', { name, available: true })
         //TODO: set other things & connect the user to the server
         socketAPI.connect({ name, available: true, id: '' })
+        subToServerNotifications()
+        setInterval(() => socketAPI.sendHeartbeat(), 4000)
     }
+
     const sendMatchRequest = (id: string) => {
         setState({
             opponent: id,
