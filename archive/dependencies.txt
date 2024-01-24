@@ -1,5 +1,2 @@
 socket.io
-socket.io-client
-styled-components
-node-sasss
 express

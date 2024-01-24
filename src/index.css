@@ -1,3 +1,35 @@
+:root, html, body {
+    padding: 0;
+    margin: 0;
+    background: rgba(0,0,0,1);
+}
+
+html[debug] * {
+    outline: 1px solid deepskyblue
+}
+
+/* Apply different shades for different levels */
+html[debug] *:nth-child(1) {
+    background-color: hsl(240, 85%, 5%);
+}
+
+html[debug] *:nth-child(2) {
+    background-color: hsl(240, 85%, 15%);
+}
+
+html[debug] *:nth-child(3) {
+    background-color: hsl(240, 85%, 25%);
+}
+
+/* Continue for as many levels as needed */
+html[debug] *:nth-child(4) {
+    background-color: hsl(240, 85%, 35%);
+}
+
+html[debug] *:nth-child(5) {
+    background-color: hsl(240, 85%, 55%);
+}
+
 :root {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
@@ -23,11 +55,8 @@ a:hover {
 }
 
 body {
-    margin: 0;
-    display: flex;
-    place-items: center;
-    min-width: 320px;
-    min-height: 100vh;
+    margin: 0 auto;
+    background: rgba(255,0, 0, .2);
 }
 
 h1 {
@@ -52,6 +81,10 @@ button:hover {
 button:focus,
 button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
+}
+
+#root {
+    background: rgba(0,255,0, .2);
 }
 
 @media (prefers-color-scheme: light) {

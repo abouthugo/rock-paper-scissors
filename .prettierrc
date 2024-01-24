@@ -3,5 +3,9 @@
     "trailingComma": "all",
     "singleQuote": true,
     "printWidth": 80,
-    "tabWidth": 4
+    "tabWidth": 4,
+    "importOrder": ["^@solid/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true,
+    "importOrderCaseInsensitive": true
 }
