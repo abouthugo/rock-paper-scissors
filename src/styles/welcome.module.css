@@ -48,15 +48,14 @@
     font-family: inherit;
 
     box-shadow: 0 10px #000091;
+}
+.button:hover {
+    box-shadow: 0 6px #000091;
+    top: 4px;
+}
 
-    &:hover {
-        box-shadow: 0 6px #000091;
-        top: 4px;
-    }
-
-    &:active {
-        box-shadow: 0 2px #000091;
-        top: 8px;
-        transition-duration: 0.2s;
-    }
+.button:active {
+    box-shadow: 0 2px #000091;
+    top: 8px;
+    transition-duration: 0.2s;
 }
