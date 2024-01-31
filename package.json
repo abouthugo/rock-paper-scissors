@@ -8,10 +8,12 @@
 		"server": "tsx server/index.ts",
 		"build": "tsc && vite build",
 		"preview": "vite preview",
-		"biome:check": "npx @biomejs/biome check src",
-		"lint": "npx @biomejs/biome lint src",
+		"biome:check:app": "npx @biomejs/biome check src --apply",
+		"biome:check:server": "npx @biomejs/biome check server --apply",
+		"lint:app": "npx @biomejs/biome lint src",
+		"lint:server": "npx @biomejs/biome lint server",
 		"format:app": "npx @biomejs/biome format src --write",
-		"format:server": "npx @biomejs/biome format src --write"
+		"format:server": "npx @biomejs/biome format server --write"
 	},
 	"dependencies": {
 		"@solidjs/router": "^0.10.6",
