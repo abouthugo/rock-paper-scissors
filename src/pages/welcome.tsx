@@ -23,7 +23,11 @@ export default function Welcome() {
         <>
             <h1 class={`${styles.title}`}>Please enter a username</h1>
             <div class={`${styles.panel}`}>
-                <form onsubmit={onSubmit} action="/game">
+                <form
+                    onsubmit={onSubmit}
+                    action="/game"
+                    class="flex gap-2 items-center"
+                >
                     <input
                         type="text"
                         name="username"
@@ -32,7 +36,9 @@ export default function Welcome() {
                         required
                         class={`${styles['input-box']}`}
                     />
-                    <button type="submit">Submit</button>
+                    <button type="submit" class={styles.button}>
+                        Go
+                    </button>
                 </form>
             </div>
         </>
