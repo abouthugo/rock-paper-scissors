@@ -3,6 +3,18 @@ import Welcome from './pages/welcome'
 import Lobby from './pages/lobby'
 
 function App() {
+    /**
+     * Shift + D to toggle debug mode
+     */
+    document.addEventListener('keyup', (e) => {
+        if (e.shiftKey && e.code === 'KeyD') {
+            const debug = document.documentElement.getAttribute('debug')
+            console.log('debug:', debug)
+            if (debug !== null)
+                document.documentElement.removeAttribute('debug')
+            else document.documentElement.setAttribute('debug', '')
+        }
+    })
     return (
         <>
             <Route path="/" component={Welcome} />
