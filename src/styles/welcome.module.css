@@ -14,48 +14,33 @@
     grid-template-rows: repeat(10, 1fr);
     grid-template-areas: 'input' 'start';
     grid-gap: 20px;
-    justify-content: center;
-    min-height: 100%;
-    max-height: 100%;
-    min-width: 100%;
-    max-width: 100%;
+    @apply justify-center min-h-full min-w-full;
 }
 
 .input-box {
-    border: none;
-    border-bottom: 1px solid black;
-    font-size: 16px;
-    padding: 10px 20px;
-    margin: 20px 0;
-}
-.input-box:focus {
-    outline: none;
+    @apply border-b border-black;
+    @apply text-base py-[10px] px-[20px] my-[20px];
+    @apply focus:outline-none;
 }
 
 .button {
-    display: block;
-    position: relative;
-    outline: none;
-    border: none;
-    cursor: pointer;
+    @apply block relative outline-none border-none cursor-pointer;
+    @apply py-[10px] px-[40px] rounded-xl text-white;
+    @apply text-base;
+    box-shadow: 0 10px #1e3a8a;
+} 
 
-    padding: 10px 40px;
-    border-radius: 10px;
-    background: blue;
-    color: white;
-
-    font-size: 16px;
-    font-family: inherit;
-
-    box-shadow: 0 10px #000091;
+button.button[type="button"] {
+    @apply bg-blue-500;
 }
+
 .button:hover {
-    box-shadow: 0 6px #000091;
+    box-shadow: 0 6px #1e3a8a;
     top: 4px;
 }
 
 .button:active {
-    box-shadow: 0 2px #000091;
+    box-shadow: 0 2px #1e3a8a;
     top: 8px;
     transition-duration: 0.2s;
 }
