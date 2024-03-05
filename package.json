@@ -17,6 +17,7 @@
 	},
 	"dependencies": {
 		"@solidjs/router": "^0.10.6",
+		"classnames": "^2.5.1",
 		"cors": "^2.8.5",
 		"express": "^4.18.2",
 		"luxon": "^3.4.4",
