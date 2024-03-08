@@ -40,6 +40,7 @@ type GameActions = {
 	sendMatchRequest: (id: string) => void;
 	timerDone: () => void;
 	updateChoice: (choice: CardChoice) => void;
+	toggleOutRequest: () => void;
 };
 type GameContext = [GameState, GameActions];
 
@@ -54,41 +55,13 @@ const GameStateContext = createContext<GameContext>([
 		sendMatchRequest: () => {},
 		timerDone: () => {},
 		updateChoice: () => {},
+		toggleOutRequest: () => {},
 	},
 ]);
 
 export function GameStateProvider(props: { children: JSXElement }) {
 	const [state, setState] = createStore<GameState>(defaultGameState);
-	const socketAPI = connectSocket();
-
-	const toggleAvailable = () => {
-		const { user } = state;
-		if (!user) return;
-		const { available } = user;
-		setState("user", { available: !available });
-		socketAPI.update(user); // TODO: check if this works as intended, state might not be updated yet
-	};
-
-	socketAPI.subToEntering((players) => {
-		console.log("entering", players);
-		setState(
-			"players",
-			players.filter((p) => p.id !== state.user?.id),
-		);
-	});
-
-	socketAPI.subToIdAssignment((id) => {
-		console.log("id assigned", id);
-		setState("user", { id });
-	});
-
-	socketAPI.subToPlayerLeft((id) => {
-		console.log("player left", id);
-		setState(
-			"players",
-			state.players.filter((p) => p.id !== id),
-		);
-	});
+	let socketAPI: ReturnType<typeof connectSocket>;
 
 	function subToServerNotifications() {
 		socketAPI.subToNewPlayer((player) => {
@@ -128,6 +101,14 @@ export function GameStateProvider(props: { children: JSXElement }) {
 		});
 	}
 
+	const toggleAvailable = () => {
+		const { user } = state;
+		if (!user) return;
+		const { available } = user;
+		setState("user", { available: !available });
+		socketAPI.update(user); // TODO: check if this works as intended, state might not be updated yet
+	};
+
 	const handleStart = () => {
 		setState("start", true);
 	};
@@ -136,8 +117,38 @@ export function GameStateProvider(props: { children: JSXElement }) {
 		//TODO: Reset the game state
 	};
 
+	const toggleOutRequest = () => {
+		setState((bState) =>
+			bState.outRequest === "sent"
+				? { outRequest: "none" }
+				: { outRequest: "sent" },
+		);
+	};
+
 	function setPlayerName(name: string) {
 		console.log("player set");
+		socketAPI = connectSocket();
+
+		socketAPI.subToEntering((players) => {
+			console.log("entering", players);
+			setState(
+				"players",
+				players.filter((p) => p.id !== state.user?.id),
+			);
+		});
+
+		socketAPI.subToIdAssignment((id) => {
+			console.log("id assigned", id);
+			setState("user", { id });
+		});
+
+		socketAPI.subToPlayerLeft((id) => {
+			console.log("player left", id);
+			setState(
+				"players",
+				state.players.filter((p) => p.id !== id),
+			);
+		});
 		setState("user", { name, available: true });
 		//TODO: set other things & connect the user to the server
 		socketAPI.connect({ name, available: true, id: "" });
@@ -152,9 +163,11 @@ export function GameStateProvider(props: { children: JSXElement }) {
 		});
 		socketAPI.requestMatch(id);
 	};
+
 	const timerDone = () => {
 		//TODO: emit a socket message to the server
 	};
+
 	const updateChoice = (choice: CardChoice) => {
 		setState("choice", choice);
 	};
@@ -173,6 +186,7 @@ export function GameStateProvider(props: { children: JSXElement }) {
 			sendMatchRequest,
 			timerDone,
 			updateChoice,
+			toggleOutRequest,
 		},
 	];
 	return (

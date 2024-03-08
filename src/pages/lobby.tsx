@@ -1,10 +1,16 @@
 import { useNavigate } from "@solidjs/router";
 import { UserType, useGameState } from "../game-state-provider";
 import styles from "../styles/lobby.module.css";
+import classNames from "classnames";
 
 export default function Lobby() {
 	const [state, actions] = useGameState();
 	const navigate = useNavigate();
+	const isWaiting = () => state.outRequest === "sent";
+
+	if (!state.user?.name) {
+		navigate("/");
+	}
 
 	const PlayerComponent = ({ player }: { player: UserType }) => {
 		const color1 = player.available ? "bg-green-500" : "bg-red-500";
@@ -32,15 +38,40 @@ export default function Lobby() {
 		);
 	};
 
-	if (!state.user?.name) {
-		navigate("/");
-	}
+	const WaitingAnimation = () => {
+		return (
+			<div
+				class={classNames(
+					styles.pulse_container,
+					"transition-all duration-700 ease-spring",
+					{
+						invisible: !isWaiting(),
+						"opacity-0": !isWaiting(),
+						"scale-50": !isWaiting(),
+					},
+				)}
+			>
+				<h1 class="text-slate-600">Waiting for player to confirm</h1>
+				<div class={styles.pulse_dot} />
+			</div>
+		);
+	};
+
 	return (
 		<>
 			<section class={styles.title}>
 				<h1>Welcome {state.user?.name}</h1>
 			</section>
-			<section class={styles.panel}>
+			<section
+				class={classNames(
+					styles.panel,
+					"transition-all duration-700 ease-spring",
+					{
+						"opacity-0": isWaiting(),
+						"-translate-x-10": isWaiting(),
+					},
+				)}
+			>
 				<h1 class="text-lg font-bold">Player List</h1>
 				<div class="my-2 flex-col">
 					{state.players.map((player) => (
@@ -48,6 +79,20 @@ export default function Lobby() {
 					))}
 				</div>
 			</section>
+			<button
+				type="button"
+				onclick={actions.toggleOutRequest}
+				class={classNames(
+					"bg-black px-2 py-3 my-2 rounded-lg h-fit text-white",
+					{
+						"bg-slate-300": isWaiting(),
+						"text-black": isWaiting(),
+					},
+				)}
+			>
+				toggle out pulse
+			</button>
+			<WaitingAnimation />
 		</>
 	);
 }
